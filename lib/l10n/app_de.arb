@@ -140,7 +140,7 @@
   "aboutTheApp": "Über die App",
   "aboutTitle": "Über Leksis",
   "aboutContent1": "Leksis ist eine Anwendung, die einfach und effektiv das Lernen einer oder mehrerer Sprachen ermöglicht. Das Ziel ist nicht, viele Optionen anzubieten, die kaum genutzt werden. Leksis ist ein Ort, an dem Benutzer einfach ihre Vokabeln oder alltägliche Sätze speichern und sie durch leicht zugängliche Übungen lernen können.",
-  "aboutContent2": "Daten werden direkt auf dem Gerät des Benutzers in einer lokalen SQLite-Datenbank gespeichert, was bedeutet, dass die App offline funktioniert. Das Teilen von Vokabellisten mit Freunden ist jedoch nur möglich, indem Listen über \".xlsx\"-Dateien aus erstellten Ordnern exportiert oder importiert werden.",
+  "aboutContent2": "Daten werden direkt auf dem Gerät des Benutzers in einer lokalen SQLite-Datenbank gespeichert, was bedeutet, dass die App offline funktioniert. Das Teilen von Vokabellisten mit Freunden ist jedoch nur möglich, indem Listen über \".xlsx\", \".json\"- oder \".csv\"-Dateien aus erstellten Ordnern exportiert oder importiert werden.",
   "aboutContent3": "Der Vorteil ist, dass Ihre Daten Ihnen gehören und niemand sonst Zugriff darauf hat. Der Nachteil ist, dass Sie Ihre Daten verlieren, wenn Ihrem Telefon etwas zustößt, es sei denn, Sie haben sie vorher exportiert.",
   "changePronunciationLanguage": "Aussprachesprache ändern",
   "pronounceWord": "Wort aussprechen",
@@ -161,5 +161,17 @@
   "formatCsv": "CSV (.csv)",
   "noTtsEngineFound": "Keine TTS-Engine gefunden. Einige Geräte (wie GrapheneOS) erfordern die Installation einer TTS-Engine (z. B. RHVoice oder eSpeak NG) von F-Droid.",
   "ttsHelpTitle": "TTS-Engine erforderlich",
-  "ttsHelpMessage": "Auf Ihrem Gerät scheint keine Text-to-Speech-Engine installiert zu sein.\\n\\nDa Sie GrapheneOS verwenden, müssen Sie wahrscheinlich eine Open-Source-Engine wie RHVoice oder eSpeak NG von F-Droid installieren und diese dann in den Systemeinstellungen > Bedienungshilfen > Text-zu-Sprache-Ausgabe aktivieren."
+  "ttsHelpMessage": "Auf Ihrem Gerät scheint keine Text-to-Speech-Engine installiert zu sein.\\n\\nDa Sie GrapheneOS verwenden, müssen Sie wahrscheinlich eine Open-Source-Engine wie RHVoice oder eSpeak NG von F-Droid installieren und diese dann in den Systemeinstellungen > Bedienungshilfen > Text-zu-Sprache-Ausgabe aktivieren.",
+  "appActivity": "App-Aktivität",
+  "accentColor": "Akzentfarbe",
+  "defaultColor": "Standard",
+  "indigo": "Indigo",
+  "rose": "Rose",
+  "wordsAdded": "Hinzugefügte Wörter",
+  "wordsLearnedCount": "Gelernte Wörter",
+  "monthlyProgress": "Monatlicher Fortschritt",
+  "noActivityRecorded": "Noch keine Aktivität aufgezeichnet",
+  "rateOnPlayStore": "Im Play Store bewerten",
+  "learnedVsUnlearned": "Gelernt vs. Ungelernt",
+  "activityAndProgress": "Aktivität & Fortschritt"
 }

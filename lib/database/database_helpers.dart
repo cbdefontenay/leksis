@@ -2,10 +2,12 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/folder_model.dart';
 import '../models/word_model.dart';
+import '../service/stats_service.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
+  final StatsService _statsService = StatsService();
 
   DatabaseHelper._init();
 
@@ -125,8 +127,9 @@ class DatabaseHelper {
 
   Future<int> insertWord(Word word) async {
     final db = await database;
-
-    return await db.insert('words', word.toMap());
+    final id = await db.insert('words', word.toMap());
+    await _statsService.logWordAdded();
+    return id;
   }
 
   Future<List<Word>> getWords(int folderId) async {
@@ -172,13 +175,18 @@ class DatabaseHelper {
 
   Future<void> toggleWordLearnStatus(Word word) async {
     final db = await database;
+    final newStatus = word.isLearned ? 0 : 1;
 
     await db.update(
       'words',
-      {'toBeLearned': word.isLearned ? 0 : 1},
+      {'toBeLearned': newStatus},
       where: 'id = ?',
       whereArgs: [word.id],
     );
+
+    if (newStatus == 1) {
+      await _statsService.logWordLearned();
+    }
   }
 
   Future<List<Word>> getWordsByFolder(int folderId) async {

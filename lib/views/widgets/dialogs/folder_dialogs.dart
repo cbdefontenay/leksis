@@ -16,15 +16,22 @@ class FolderDialogs {
           String? errorMessage;
           return AlertDialog(
             title: Text(loc.createFolder),
-            content: TextField(
-              autofocus: true,
-              controller: controller,
-              decoration: InputDecoration(
-                hintText: loc.createFolderHint,
-                errorText: errorMessage,
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    autofocus: true,
+                    controller: controller,
+                    decoration: InputDecoration(
+                      hintText: loc.createFolderHint,
+                      errorText: errorMessage,
+                    ),
+                    onSubmitted: (value) =>
+                        _handleSave(context, controller, onAdd, setState, loc),
+                  ),
+                ],
               ),
-              onSubmitted: (value) =>
-                  _handleSave(context, controller, onAdd, setState, loc),
             ),
             actions: [
               TextButton(
@@ -57,12 +64,19 @@ class FolderDialogs {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(loc.renameFolder),
-        content: TextField(
-          autofocus: true,
-          controller: controller,
-          decoration: InputDecoration(hintText: loc.newFolderName),
-          onSubmitted: (value) =>
-              _handleRename(context, controller, folder, onUpdate),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                autofocus: true,
+                controller: controller,
+                decoration: InputDecoration(hintText: loc.newFolderName),
+                onSubmitted: (value) =>
+                    _handleRename(context, controller, folder, onUpdate),
+              ),
+            ],
+          ),
         ),
         actions: [
           TextButton(

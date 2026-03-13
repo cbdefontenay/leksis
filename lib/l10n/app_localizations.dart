@@ -825,7 +825,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutContent2.
   ///
   /// In en, this message translates to:
-  /// **'Data is stored directly on the user\'s device via a local SQLite database, which means the app works offline. However, sharing vocabulary lists with friends is only possible by exporting or importing lists via \".xlsx\" files from created folders.'**
+  /// **'Data is stored directly on the user\'s device via a local SQLite database, which means the app works offline. However, sharing vocabulary lists with friends is only possible by exporting or importing lists via \".xlsx\", \".json\", or \".csv\" files from created folders.'**
   String get aboutContent2;
 
   /// No description provided for @aboutContent3.
@@ -953,6 +953,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your device doesn\'t seem to have a Text-to-Speech engine installed.\\n\\nSince you are using GrapheneOS, you likely need to install an open-source engine like RHVoice or eSpeak NG from F-Droid, then enable it in System Settings > Accessibility > Text-to-speech output.'**
   String get ttsHelpMessage;
+
+  /// No description provided for @appActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'App Activity'**
+  String get appActivity;
+
+  /// No description provided for @accentColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Accent Color'**
+  String get accentColor;
+
+  /// No description provided for @defaultColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Default'**
+  String get defaultColor;
+
+  /// No description provided for @indigo.
+  ///
+  /// In en, this message translates to:
+  /// **'Indigo'**
+  String get indigo;
+
+  /// No description provided for @rose.
+  ///
+  /// In en, this message translates to:
+  /// **'Rose'**
+  String get rose;
+
+  /// No description provided for @wordsAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Words Added'**
+  String get wordsAdded;
+
+  /// No description provided for @wordsLearnedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Words Learned'**
+  String get wordsLearnedCount;
+
+  /// No description provided for @monthlyProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Progress'**
+  String get monthlyProgress;
+
+  /// No description provided for @noActivityRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'No activity recorded yet'**
+  String get noActivityRecorded;
+
+  /// No description provided for @rateOnPlayStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate on Play Store'**
+  String get rateOnPlayStore;
+
+  /// No description provided for @learnedVsUnlearned.
+  ///
+  /// In en, this message translates to:
+  /// **'Learned vs Unlearned'**
+  String get learnedVsUnlearned;
+
+  /// No description provided for @activityAndProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity & Progress'**
+  String get activityAndProgress;
 }
 
 class _AppLocalizationsDelegate

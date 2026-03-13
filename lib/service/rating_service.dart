@@ -7,7 +7,8 @@ class RatingService {
   Future<bool> shouldShowRating() async {
     final prefs = await SharedPreferences.getInstance();
 
-    if (prefs.getBool(_ratedKey) == true) {
+    // If they already saw it once, don't show again
+    if (prefs.getBool('rating_prompt_seen') == true) {
       return false;
     }
 
@@ -15,8 +16,9 @@ class RatingService {
     final newCount = launchCount + 1;
     await prefs.setInt(_launchCountKey, newCount);
 
-    if (newCount == 3) {
-      await prefs.setBool(_ratedKey, true);
+    // Show on the 2nd launch (which is "once after the first launch")
+    if (newCount == 2) {
+      await prefs.setBool('rating_prompt_seen', true);
       return true;
     }
 
@@ -33,10 +35,12 @@ class RatingService {
 
   Future<void> setRated() async {
     final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('rating_prompt_seen', true);
     await prefs.setBool(_ratedKey, true);
   }
 
   Future<void> setLater() async {
-    // Intentionally empty, as the 3rd launch flag is already handled
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('rating_prompt_seen', true);
   }
 }

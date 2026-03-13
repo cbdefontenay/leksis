@@ -27,6 +27,7 @@ class LeksisApp extends StatefulWidget {
 class _LeksisAppState extends State<LeksisApp> {
   Locale? _locale;
   final RatingService _ratingService = RatingService();
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   void initState() {
@@ -97,28 +98,21 @@ class _LeksisAppState extends State<LeksisApp> {
 
     // Use the real service check with proper conditions
     if (await _ratingService.shouldShowRating() && mounted) {
-      _showRatingDialog(context);
+      _showRatingDialog();
     }
   }
 
   Future<void> _launchStore() async {
-    const url =
-        'https://play.google.com/store/apps/details?id=com.cyprien.leksis&hl=en';
-
+    final url = Uri.parse('https://play.google.com/store/apps/details?id=com.cyprien.leksis');
     try {
-      if (await canLaunchUrl(Uri.parse(url))) {
-        await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
-      } else {
-        await launchUrl(
-          Uri.parse(url),
-          mode: LaunchMode.externalNonBrowserApplication,
-        );
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Could not open Play Store')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not open Play Store')),
+        );
       }
     }
   }
@@ -128,31 +122,57 @@ class _LeksisAppState extends State<LeksisApp> {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeModeNotifier,
       builder: (context, themeMode, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Leksis',
-          theme: MaterialTheme(ThemeData.light().textTheme).light(),
-          darkTheme: MaterialTheme(ThemeData.dark().textTheme).dark(),
-          scrollBehavior: MaterialScrollBehavior(),
-          themeMode: themeMode,
-          supportedLocales: L10n.allLanguages,
-          locale: _locale,
-          localizationsDelegates: [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          home: WidgetTree(
-            currentLocale: _locale ?? const Locale('en'),
-            onLocaleChange: _setLocale,
-          ),
+        return ValueListenableBuilder<String>(
+          valueListenable: themeColorNotifier,
+          builder: (context, themeColor, child) {
+            ColorScheme lightScheme;
+            ColorScheme darkScheme;
+
+            switch (themeColor) {
+              case 'indigo':
+                lightScheme = MaterialTheme.indigoLightScheme();
+                darkScheme = MaterialTheme.indigoDarkScheme();
+                break;
+              case 'rose':
+                lightScheme = MaterialTheme.roseLightScheme();
+                darkScheme = MaterialTheme.roseDarkScheme();
+                break;
+              default:
+                lightScheme = MaterialTheme.lightScheme();
+                darkScheme = MaterialTheme.darkScheme();
+            }
+
+            return MaterialApp(
+              navigatorKey: _navigatorKey,
+              debugShowCheckedModeBanner: false,
+              title: 'Leksis',
+              theme: MaterialTheme(ThemeData.light().textTheme).theme(lightScheme),
+              darkTheme: MaterialTheme(ThemeData.dark().textTheme).theme(darkScheme),
+              scrollBehavior: const MaterialScrollBehavior(),
+              themeMode: themeMode,
+              supportedLocales: L10n.allLanguages,
+              locale: _locale,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              home: WidgetTree(
+                currentLocale: _locale ?? const Locale('en'),
+                onLocaleChange: _setLocale,
+              ),
+            );
+          },
         );
       },
     );
   }
 
-  void _showRatingDialog(BuildContext context) {
+  void _showRatingDialog() {
+    final context = _navigatorKey.currentContext;
+    if (context == null) return;
+    
     showDialog(
       context: context,
       barrierDismissible: false,

@@ -380,7 +380,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutContent2 =>
-      'Data is stored directly on the user\'s device via a local SQLite database, which means the app works offline. However, sharing vocabulary lists with friends is only possible by exporting or importing lists via \".xlsx\" files from created folders.';
+      'Data is stored directly on the user\'s device via a local SQLite database, which means the app works offline. However, sharing vocabulary lists with friends is only possible by exporting or importing lists via \".xlsx\", \".json\", or \".csv\" files from created folders.';
 
   @override
   String get aboutContent3 =>
@@ -453,4 +453,40 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get ttsHelpMessage =>
       'Your device doesn\'t seem to have a Text-to-Speech engine installed.\\n\\nSince you are using GrapheneOS, you likely need to install an open-source engine like RHVoice or eSpeak NG from F-Droid, then enable it in System Settings > Accessibility > Text-to-speech output.';
+
+  @override
+  String get appActivity => 'App Activity';
+
+  @override
+  String get accentColor => 'Accent Color';
+
+  @override
+  String get defaultColor => 'Default';
+
+  @override
+  String get indigo => 'Indigo';
+
+  @override
+  String get rose => 'Rose';
+
+  @override
+  String get wordsAdded => 'Words Added';
+
+  @override
+  String get wordsLearnedCount => 'Words Learned';
+
+  @override
+  String get monthlyProgress => 'Monthly Progress';
+
+  @override
+  String get noActivityRecorded => 'No activity recorded yet';
+
+  @override
+  String get rateOnPlayStore => 'Rate on Play Store';
+
+  @override
+  String get learnedVsUnlearned => 'Learned vs Unlearned';
+
+  @override
+  String get activityAndProgress => 'Activity & Progress';
 }

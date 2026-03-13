@@ -384,7 +384,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get aboutContent2 =>
-      'Daten werden direkt auf dem Gerät des Benutzers in einer lokalen SQLite-Datenbank gespeichert, was bedeutet, dass die App offline funktioniert. Das Teilen von Vokabellisten mit Freunden ist jedoch nur möglich, indem Listen über \".xlsx\"-Dateien aus erstellten Ordnern exportiert oder importiert werden.';
+      'Daten werden direkt auf dem Gerät des Benutzers in einer lokalen SQLite-Datenbank gespeichert, was bedeutet, dass die App offline funktioniert. Das Teilen von Vokabellisten mit Freunden ist jedoch nur möglich, indem Listen über \".xlsx\", \".json\"- oder \".csv\"-Dateien aus erstellten Ordnern exportiert oder importiert werden.';
 
   @override
   String get aboutContent3 =>
@@ -458,4 +458,40 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get ttsHelpMessage =>
       'Auf Ihrem Gerät scheint keine Text-to-Speech-Engine installiert zu sein.\\n\\nDa Sie GrapheneOS verwenden, müssen Sie wahrscheinlich eine Open-Source-Engine wie RHVoice oder eSpeak NG von F-Droid installieren und diese dann in den Systemeinstellungen > Bedienungshilfen > Text-zu-Sprache-Ausgabe aktivieren.';
+
+  @override
+  String get appActivity => 'App-Aktivität';
+
+  @override
+  String get accentColor => 'Akzentfarbe';
+
+  @override
+  String get defaultColor => 'Standard';
+
+  @override
+  String get indigo => 'Indigo';
+
+  @override
+  String get rose => 'Rose';
+
+  @override
+  String get wordsAdded => 'Hinzugefügte Wörter';
+
+  @override
+  String get wordsLearnedCount => 'Gelernte Wörter';
+
+  @override
+  String get monthlyProgress => 'Monatlicher Fortschritt';
+
+  @override
+  String get noActivityRecorded => 'Noch keine Aktivität aufgezeichnet';
+
+  @override
+  String get rateOnPlayStore => 'Im Play Store bewerten';
+
+  @override
+  String get learnedVsUnlearned => 'Gelernt vs. Ungelernt';
+
+  @override
+  String get activityAndProgress => 'Aktivität & Fortschritt';
 }

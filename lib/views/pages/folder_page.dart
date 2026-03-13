@@ -528,8 +528,8 @@ class _FolderPageState extends ConsumerState<FolderPage> {
                         onDelete: (id) => vocabNotifier.deleteWord(id),
                       )
                       .animate()
-                      .fadeIn(delay: (index * 30).ms)
-                      .slideX(begin: 0.05);
+                      .fadeIn(delay: (index * 20).ms)
+                      .slideX(begin: 0.05, duration: 200.ms);
                 },
               ),
       ),

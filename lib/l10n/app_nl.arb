@@ -140,7 +140,7 @@
   "aboutTheApp": "Over de app",
   "aboutTitle": "Over Leksis",
   "aboutContent1": "Leksis is een applicatie ontworpen om eenvoudig en effectief een of meer talen te leren. Het doel is niet om veel opties te hebben die weinig mensen gebruiken. Leksis is een plek waar gebruikers eenvoudig hun vocabulairewoorden of alledaagse zinnen kunnen opslaan en oefenen via gemakkelijk toegankelijke oefeningen.",
-  "aboutContent2": "Gegevens worden rechtstreeks op het apparaat van de gebruiker opgeslagen via een lokale SQLite-database, wat betekent dat de app offline werkt. Het delen van vocabulairelijsten met vrienden is echter alleen mogelijk door lijsten te exporteren of importeren via \".xlsx\"-bestanden uit gemaakte mappen.",
+  "aboutContent2": "Gegevens worden rechtstreeks op het apparaat van de gebruiker opgeslagen via een lokale SQLite-database, wat betekent dat de app offline werkt. Het delen van vocabulairelijsten met vrienden is echter alleen mogelijk door lijsten te exporteren of importeren via \".xlsx\", \".json\" of \".csv\" bestanden uit gemaakte mappen.",
   "aboutContent3": "Het voordeel is dat uw gegevens van u zijn en niemand anders er toegang toe heeft. Het nadeel is dat als er iets met uw telefoon gebeurt, u uw gegevens verliest tenzij u ze van tevoren heeft geëxporteerd.",
   "changePronunciationLanguage": "Uitspraaktaal wijzigen",
   "pronounceWord": "Woord uitspreken",
@@ -161,5 +161,17 @@
   "formatCsv": "CSV (.csv)",
   "noTtsEngineFound": "Geen TTS-engine gevonden. Sommige apparaten (zoals GrapheneOS) vereisen het installeren van een TTS-engine (bijv. RHVoice of eSpeak NG) via F-Droid.",
   "ttsHelpTitle": "TTS-engine vereist",
-  "ttsHelpMessage": "Uw apparaat lijkt geen tekst-naar-spraak-engine te hebben geïnstalleerd.\\n\\nAangezien u GrapheneOS gebruikt, moet u waarschijnlijk een open-source engine zoals RHVoice of eSpeak NG van F-Droid installeren en deze vervolgens inschakelen in Systeeminstellingen > Toegankelijkheid > Tekst-naar-spraak-output."
+  "ttsHelpMessage": "Uw apparaat lijkt geen tekst-naar-spraak-engine te hebben geïnstalleerd.\\n\\nAangezien u GrapheneOS gebruikt, moet u waarschijnlijk een open-source engine zoals RHVoice of eSpeak NG van F-Droid installeren en deze vervolgens inschakelen in Systeeminstellingen > Toegankelijkheid > Tekst-naar-spraak-output.",
+  "appActivity": "App-activiteit",
+  "accentColor": "Accentkleur",
+  "defaultColor": "Standaard",
+  "indigo": "Indigo",
+  "rose": "Roze",
+  "wordsAdded": "Woorden toegevoegd",
+  "wordsLearnedCount": "Woorden geleerd",
+  "monthlyProgress": "Maandelijkse voortgang",
+  "noActivityRecorded": "Nog geen activiteit geregistreerd",
+  "rateOnPlayStore": "Beoordeel in de Play Store",
+  "learnedVsUnlearned": "Geleerd vs. Niet geleerd",
+  "activityAndProgress": "Activiteit & Voortgang"
 }

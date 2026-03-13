@@ -381,7 +381,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get aboutContent2 =>
-      'Gegevens worden rechtstreeks op het apparaat van de gebruiker opgeslagen via een lokale SQLite-database, wat betekent dat de app offline werkt. Het delen van vocabulairelijsten met vrienden is echter alleen mogelijk door lijsten te exporteren of importeren via \".xlsx\"-bestanden uit gemaakte mappen.';
+      'Gegevens worden rechtstreeks op het apparaat van de gebruiker opgeslagen via een lokale SQLite-database, wat betekent dat de app offline werkt. Het delen van vocabulairelijsten met vrienden is echter alleen mogelijk door lijsten te exporteren of importeren via \".xlsx\", \".json\" of \".csv\" bestanden uit gemaakte mappen.';
 
   @override
   String get aboutContent3 =>
@@ -454,4 +454,40 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get ttsHelpMessage =>
       'Uw apparaat lijkt geen tekst-naar-spraak-engine te hebben geïnstalleerd.\\n\\nAangezien u GrapheneOS gebruikt, moet u waarschijnlijk een open-source engine zoals RHVoice of eSpeak NG van F-Droid installeren en deze vervolgens inschakelen in Systeeminstellingen > Toegankelijkheid > Tekst-naar-spraak-output.';
+
+  @override
+  String get appActivity => 'App-activiteit';
+
+  @override
+  String get accentColor => 'Accentkleur';
+
+  @override
+  String get defaultColor => 'Standaard';
+
+  @override
+  String get indigo => 'Indigo';
+
+  @override
+  String get rose => 'Roze';
+
+  @override
+  String get wordsAdded => 'Woorden toegevoegd';
+
+  @override
+  String get wordsLearnedCount => 'Woorden geleerd';
+
+  @override
+  String get monthlyProgress => 'Maandelijkse voortgang';
+
+  @override
+  String get noActivityRecorded => 'Nog geen activiteit geregistreerd';
+
+  @override
+  String get rateOnPlayStore => 'Beoordeel in de Play Store';
+
+  @override
+  String get learnedVsUnlearned => 'Geleerd vs. Niet geleerd';
+
+  @override
+  String get activityAndProgress => 'Activiteit & Voortgang';
 }

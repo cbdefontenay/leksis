@@ -382,7 +382,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get aboutContent2 =>
-      'Les données sont enregistrées directement sur l\'appareil de l\'utilisateur via une base de données SQLite locale, ce qui signifie que l\'application fonctionne hors connexion. Cependant, le partage de listes de vocabulaire avec des amis n\'est possible qu\'en exportant ou important des listes via des fichiers \".xlsx\" depuis les dossiers créés.';
+      'Les données sont enregistrées directement sur l\'appareil de l\'utilisateur via une base de données SQLite locale, ce qui signifie que l\'application fonctionne hors connexion. Cependant, le partage de listes de vocabulaire avec des amis n\'est possible qu\'en exportant ou important des listes via des fichiers \".xlsx\", \".json\" ou \".csv\" depuis les dossiers créés.';
 
   @override
   String get aboutContent3 =>
@@ -457,4 +457,40 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get ttsHelpMessage =>
       'Votre appareil ne semble pas avoir de moteur de synthèse vocale installé.\\n\\nComme vous utilisez GrapheneOS, vous devez probablement installer un moteur open-source comme RHVoice ou eSpeak NG depuis F-Droid, puis l\'activer dans Paramètres Système > Accessibilité > Sortie de synthèse vocale.';
+
+  @override
+  String get appActivity => 'Activité de l\'App';
+
+  @override
+  String get accentColor => 'Couleur d\'accent';
+
+  @override
+  String get defaultColor => 'Défaut';
+
+  @override
+  String get indigo => 'Indigo';
+
+  @override
+  String get rose => 'Rose';
+
+  @override
+  String get wordsAdded => 'Mots ajoutés';
+
+  @override
+  String get wordsLearnedCount => 'Mots appris';
+
+  @override
+  String get monthlyProgress => 'Progrès mensuels';
+
+  @override
+  String get noActivityRecorded => 'Aucune activité enregistrée';
+
+  @override
+  String get rateOnPlayStore => 'Noter sur le Play Store';
+
+  @override
+  String get learnedVsUnlearned => 'Appris vs Non appris';
+
+  @override
+  String get activityAndProgress => 'Activité & Progrès';
 }

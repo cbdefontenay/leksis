@@ -4,6 +4,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:leksis/data/notifiers.dart';
 import 'package:leksis/theme/app_styles.dart';
 import 'package:leksis/views/widgets/language_selector_widget.dart';
+import 'package:leksis/views/pages/stats_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../l10n/app_localizations.dart';
 
 class SettingPage extends StatelessWidget {
@@ -20,6 +22,7 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeModeNotifier,
 
@@ -45,7 +48,7 @@ class SettingPage extends StatelessWidget {
                 children: [
                   _buildSettingItem(
                     context,
-                    title: AppLocalizations.of(context)!.changeLanguage,
+                    title: loc.changeLanguage,
                     icon: Icons.language_rounded,
                     child: LanguageSelector(
                       currentLocale: currentLocale,
@@ -60,14 +63,62 @@ class SettingPage extends StatelessWidget {
                     child: _buildThemeSelector(context, themeMode),
                   ),
                   const SizedBox(height: 16),
+                  ValueListenableBuilder<String>(
+                    valueListenable: themeColorNotifier,
+                    builder: (context, themeColor, child) {
+                      return _buildSettingItem(
+                        context,
+                        title: loc.accentColor,
+                        icon: Icons.palette_rounded,
+                        child: _buildColorSelector(context, themeColor),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  _buildActivityButton(context),
+                  const SizedBox(height: 16),
                   _buildAboutButton(context),
                   const SizedBox(height: 16),
-                ].animate(interval: 100.ms).fadeIn().slideY(begin: 0.1, end: 0),
+                ].animate(interval: 50.ms).fadeIn().slideY(begin: 0.1, end: 0),
               ),
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildActivityButton(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+    return Card(
+      color: Theme.of(context).colorScheme.primaryContainer,
+      child: InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const StatsPage()),
+        ),
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                loc.activityAndProgress,
+                style: GoogleFonts.firaSans(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                ),
+              ),
+              Icon(
+                Icons.bar_chart_rounded,
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -102,6 +153,7 @@ class SettingPage extends StatelessWidget {
   }
 
   void _showAboutDialog(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -136,7 +188,7 @@ class SettingPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    AppLocalizations.of(context)!.aboutTitle,
+                    loc.aboutTitle,
                     style: GoogleFonts.philosopher(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -146,6 +198,7 @@ class SettingPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   Text(
                     AppLocalizations.of(context)!.aboutContent1,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 16,
                       height: 1.5,
@@ -155,6 +208,7 @@ class SettingPage extends StatelessWidget {
                   const SizedBox(height: 16),
                   Text(
                     AppLocalizations.of(context)!.aboutContent2,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 16,
                       height: 1.5,
@@ -162,12 +216,20 @@ class SettingPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    AppLocalizations.of(context)!.aboutContent3,
-                    style: TextStyle(
-                      fontSize: 16,
-                      height: 1.5,
-                      color: Theme.of(context).colorScheme.onSurface,
+                  Center(
+                    child: ElevatedButton.icon(
+                      onPressed: () async {
+                        final url = Uri.parse('https://play.google.com/store/apps/details?id=com.cyprien.leksis');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url, mode: LaunchMode.externalApplication);
+                        }
+                      },
+                      icon: const Icon(Icons.star_rounded, color: Colors.amber),
+                      label: Text(loc.rateOnPlayStore),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                        foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
                     ),
                   ),
                 ],
@@ -290,6 +352,61 @@ class SettingPage extends StatelessWidget {
             );
           }).toList(),
         ),
+      ),
+    );
+  }
+
+  Widget _buildColorSelector(BuildContext context, String currentThemeColor) {
+    final loc = AppLocalizations.of(context)!;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.onSecondary,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<String>(
+          value: currentThemeColor,
+          icon: Icon(
+            Icons.arrow_drop_down,
+            size: 28,
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          onChanged: (String? newColor) {
+            if (newColor != null) {
+              saveThemeColor(newColor);
+            }
+          },
+          items: [
+            _buildColorDropdownItem(context, 'default', loc.defaultColor, Icons.settings_brightness),
+            _buildColorDropdownItem(context, 'indigo', loc.indigo, Icons.circle, color: Colors.indigo),
+            _buildColorDropdownItem(context, 'rose', loc.rose, Icons.circle, color: Colors.pink),
+          ],
+        ),
+      ),
+    );
+  }
+
+  DropdownMenuItem<String> _buildColorDropdownItem(
+    BuildContext context,
+    String value,
+    String label,
+    IconData icon, {
+    Color? color,
+  }) {
+    return DropdownMenuItem(
+      value: value,
+      child: Row(
+        children: [
+          Icon(icon, color: color ?? Theme.of(context).colorScheme.secondary, size: 20),
+          const SizedBox(width: 8),
+          Text(label),
+        ],
       ),
     );
   }

@@ -140,7 +140,7 @@
   "aboutTheApp": "About the app",
   "aboutTitle": "About Leksis",
   "aboutContent1": "Leksis is an application designed to be simple and effective for learning one or more languages. The goal isn't to have lots of options that few people use. Leksis is a place where users can simply store their vocabulary words or everyday phrases, and practice them through easily accessible exercises.",
-  "aboutContent2": "Data is stored directly on the user's device via a local SQLite database, which means the app works offline. However, sharing vocabulary lists with friends is only possible by exporting or importing lists via \".xlsx\" files from created folders.",
+  "aboutContent2": "Data is stored directly on the user's device via a local SQLite database, which means the app works offline. However, sharing vocabulary lists with friends is only possible by exporting or importing lists via \".xlsx\", \".json\", or \".csv\" files from created folders.",
   "aboutContent3": "The advantage is that your data belongs to you and no one else has access to it. The disadvantage is that if something happens to your phone, you'll lose your data unless you've exported it beforehand.",
   "changePronunciationLanguage": "Change pronunciation language",
   "pronounceWord": "Pronounce word",
@@ -161,5 +161,17 @@
   "formatCsv": "CSV (.csv)",
   "noTtsEngineFound": "No TTS engine found. Some devices (like GrapheneOS) require installing a TTS engine (e.g., RHVoice or eSpeak NG) from F-Droid.",
   "ttsHelpTitle": "TTS Engine Required",
-  "ttsHelpMessage": "Your device doesn't seem to have a Text-to-Speech engine installed.\\n\\nSince you are using GrapheneOS, you likely need to install an open-source engine like RHVoice or eSpeak NG from F-Droid, then enable it in System Settings > Accessibility > Text-to-speech output."
+  "ttsHelpMessage": "Your device doesn't seem to have a Text-to-Speech engine installed.\\n\\nSince you are using GrapheneOS, you likely need to install an open-source engine like RHVoice or eSpeak NG from F-Droid, then enable it in System Settings > Accessibility > Text-to-speech output.",
+  "appActivity": "App Activity",
+  "accentColor": "Accent Color",
+  "defaultColor": "Default",
+  "indigo": "Indigo",
+  "rose": "Rose",
+  "wordsAdded": "Words Added",
+  "wordsLearnedCount": "Words Learned",
+  "monthlyProgress": "Monthly Progress",
+  "noActivityRecorded": "No activity recorded yet",
+  "rateOnPlayStore": "Rate on Play Store",
+  "learnedVsUnlearned": "Learned vs Unlearned",
+  "activityAndProgress": "Activity & Progress"
 }

@@ -138,8 +138,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                               : null,
                         )
                         .animate()
-                        .fadeIn(duration: 400.ms)
-                        .moveY(begin: 20, end: 0)
+                        .fadeIn(duration: 200.ms)
+                        .moveY(begin: 10, end: 0)
                   : ReorderableListView.builder(
                       padding: const EdgeInsets.only(bottom: 80),
                       itemCount: filteredFolders.length,
@@ -179,8 +179,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                               },
                             )
                             .animate(key: Key('folder_${folder.id}'))
-                            .fadeIn(delay: (index * 50).ms)
-                            .slideX(begin: 0.1, duration: 400.ms);
+                            .fadeIn(delay: (index * 30).ms)
+                            .slideX(begin: 0.1, duration: 200.ms);
                       },
                     ),
             ),

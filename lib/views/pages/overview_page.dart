@@ -222,7 +222,7 @@ class _OverviewPageState extends State<OverviewPage>
             icon: Icons.auto_awesome_rounded,
             title: AppLocalizations.of(context)!.noWordsAvailable,
             description: AppLocalizations.of(context)!.overviewEmptyDescription,
-          ).animate().fadeIn();
+          ).animate().fadeIn(duration: 200.ms);
         }
 
         return Column(
